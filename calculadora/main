@@ -1,1 +1,2 @@
-from geratriz import gerasim 
+from Funções import *
+n1=n2=s=op=r=c=float()
