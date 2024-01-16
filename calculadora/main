@@ -1,3 +1,2 @@
 from Funções import *
 n1=n2=s=op=r=c=sq=float()
-mod(n1,r,sq)

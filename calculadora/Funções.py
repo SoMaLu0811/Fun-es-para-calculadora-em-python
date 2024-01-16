@@ -1,5 +1,5 @@
-from math import log10, log2, sin,cos,tan,sqrt
-
+from math import log10, log2, sin,cos,tan,exp
+histo = set()
 
 def add(n1,n2,s): #adição
     n1 = float(input("Digite um número:"))
@@ -59,13 +59,12 @@ def tang(n1,r): #arquitangente
     print(f"A arquitangente de {n1} é: {r}")
     return r 
 
-def mod(n1,r,sq): #módulo de um número 
+def mod(n1,sq): #módulo de um número 
     n1 = float(input('Digite um número:'))
-    sq = sqrt(n1)
-    r = sq**2
-    print(f'O módulo de {n1} é: {r}')
-    return r
-
+    sq = (n1**2)**1/2
+    sq**=1/2
+    print(f'O módulo de {n1} é: {sq}')
+    return sq
 
 def raiz(r,c, res): #Raiz enésima
     n = float(input("Digite um número:"))
@@ -74,6 +73,21 @@ def raiz(r,c, res): #Raiz enésima
     print(f'A raiz {r} deste número é:')
     return res             
 
+def expo(n1,r):
+    n1 = float(input("Digite um número:"))
+    r = exp(n1)
+    print(f"O exponencial de {n1} é: {r}")
+    return r 
+
+def hist(n1,n2,s,op,r,c,sq):
+    while   True:
+        histo.add(n1,n2,s,op,r,c,sq) 
+        op = str(input("Deseja ver o histórico da calculadora(S/N):"))
+        if op == 'S':
+            print(all(histo))
+        else:
+            break 
+    
 def gerasim(diz, fra,res): #Fração geratriz simples
     diz = float(input('Digite a dizima períodica:'))
     fra = diz*10
@@ -81,12 +95,3 @@ def gerasim(diz, fra,res): #Fração geratriz simples
     print(f"A fração geratriz desta dizima é: {res}/9")
     return res
 
-
-
-def parimp(n): #Verificação de par ou impar de um número
-    n = int(input("Digite um número:"))
-    if n%2 == 0:
-        print("Este número é par")
-    else: 
-        print("Este número é impar")
-        
